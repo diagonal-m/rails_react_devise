@@ -1,4 +1,4 @@
-FROM ruby:3.0.0
+FROM ruby:3.0
 
 ARG WORKDIR=/var/www/backend
 # デフォルトの locale `C` を `C.UTF-8` に変更する
@@ -7,7 +7,7 @@ ENV LC_ALL C.UTF-8
 # タイムゾーンを日本時間に変更
 ENV TZ Asia/Tokyo
 
-RUN apt-get update && apt-get install -y nodejs npm mariadb-client
+RUN apt-get update && apt-get install -y nodejs npm
 RUN npm install -g yarn@1
 
 RUN mkdir -p $WORKDIR
